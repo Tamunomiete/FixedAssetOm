@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FixedAssetOm.Models.TblFacategory>
+
+@{
+    ViewData["Title"] = "AssetCategorysList";
+}
+
+<h3>AssetCategoryList</h3>
+
+<p>
+    <a class="btn btn-primary btn-sm" asp-action="createCategoryClass" asp-controller="SetupController1">Create New</a>
+</p>
+<table class="table table-success table-striped-columns table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatCode)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.CatDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CatCode)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthId)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                    <a href="#" class="btn btn-primary btn-sm" onclick="ConfirmDelete(@item.Id)">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

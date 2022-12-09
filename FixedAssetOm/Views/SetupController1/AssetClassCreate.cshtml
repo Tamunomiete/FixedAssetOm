@@ -1,0 +1,72 @@
+﻿@model FixedAssetOm.Models.TblFaclass
+
+@{
+    ViewData["Title"] = "AssetClassCreate";
+}
+
+<h1 class="display-6">Create Fixed Asset Class</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form method="post" asp-action="AssetClassCreate">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col">
+                    <input asp-for="CatCode" placeholder="Category Code" class="form-control" />
+
+                </div>
+                <br />
+                <div class="col">
+                    <input asp-for="ClassCode" placeholder="Class Code" class="form-control" />
+
+                </div>
+                <br />
+                <div class="col">
+                    <input asp-for="ClassName" class="form-control" placeholder="Class Name" />
+
+                </div>
+                <br />
+                <div class="col">
+                    <input asp-for="LifeSpan" placeholder="Life Span" class="form-control" />
+
+                </div>
+                <br />
+                <div class="col">
+                    <input asp-for="DepRate" placeholder="Depreciation Rate" class="form-control" />
+                </div>
+                <br />
+                <select asp-for="DepMethod" class="form-select" aria-label="Default select example">
+                    <option selected>Choose Depreciation Method</option>
+                    <option value="1">straight line</option>
+                    <option value="2">double declining balance </option>
+                    <option value="3">sum of the year digit</option>
+                </select>
+
+                <br />
+                <div class="col">
+                    <input asp-for="UserId" placeholder="UserId" class="form-control" />
+
+                </div>
+                <br />
+                <div class="col">
+
+                    <input asp-for="AuthId" placeholder="AuthId" class="form-control" />
+                </div>
+                <br />
+
+               
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                    <a href="@Url.Action("AssetClassList")" class="btn btn-primary" id="button">Return</a>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

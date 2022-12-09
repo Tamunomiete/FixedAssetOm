@@ -1,0 +1,95 @@
+﻿@model IEnumerable<FixedAssetOm.Models.TblFaclass>
+
+@{
+    ViewData["Title"] = "AssetCategorysList";
+}
+
+<h3 class="h3">New Asset Class</h3>
+
+<p>
+    <a class="btn btn-primary btn-sm" asp-action="AssetClassCreate" asp-controller="SetupController1">Create New</a>
+</p>
+<table class="table table-success table-striped-columns table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassCode)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LifeSpan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model =>model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model =>model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model =>model.AuthId)
+            </th>
+            <th id="b">Edit | Delete  </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CatCode)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepMethod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LifeSpan)
+                </td>
+                  <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthId)
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="@Url.Action("EditAssetClass", "SetupController1", new { classcode = item.ClassCode })">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="@Url.Action("DeleteAssetClass", "SetupController1", new { classcode = item.ClassCode })">Delete</a>
+                    
+
+                   
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
